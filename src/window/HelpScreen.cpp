@@ -34,18 +34,18 @@ void HelpScreen::draw(sf::RenderTarget& target, sf::RenderStates states) const
     {
         case 0:
         {
-            writeCenteredText(L"Bienvenue dans l'aide de Fantômes", 32, 100, target, states);
+            writeCenteredText(wtr("Welcome in Phantom's help"), 32, 100, target, states);
 
-            writeCenteredText(L"Utilisez les touches flèches pour changer de page", 16, 200, target, states);
-            writeCenteredText(L"Appuyez sur <Echap> pour revenir au menu", 16, 220, target, states);
+            writeCenteredText(wtr("Use arrow keys to navigate between pages"), 16, 200, target, states);
+            writeCenteredText(wtr("Type <Esc> to return to menu"), 16, 220, target, states);
 
             break;
         }
         case 1:
         {
-            writeCenteredText(L"Dans ce jeu vous devez", 32, 68, target, states);
-            writeCenteredText(L"attraper un maximum de pièces", 32, 100, target, states);
-            writeCenteredText(L"avec le(s) personnage(s)", 32, 132, target, states);
+            writeCenteredText(wtr("In this game you must"), 32, 68, target, states);
+            writeCenteredText(wtr("catch the maximum of coins"), 32, 100, target, states);
+            writeCenteredText(wtr("with the smiling character(s)"), 32, 132, target, states);
 
             sf::VertexArray vertices(sf::Quads);
             vertices.resize(3*4);
@@ -54,15 +54,15 @@ void HelpScreen::draw(sf::RenderTarget& target, sf::RenderStates states) const
             genSpriteVertices(&vertices[8], sf::Vector2i(400, 208), rectForTilesetId(32));
             target.draw(vertices, states);
 
-            writeCenteredText(L"Chaque pièce vous rapportera 1 point", 24, 300, target, states);
+            writeCenteredText(wtr("Each coin gives you 1 point"), 24, 300, target, states);
 
             break;
         }
         case 2:
         {
-            writeCenteredText(L"Dans le même temps vous devez", 32, 68, target, states);
-            writeCenteredText(L"absolument éviter d'être", 32, 100, target, states);
-            writeCenteredText(L"touché par un fantôme", 32, 132, target, states);
+            writeCenteredText(wtr("At the same time you must"), 32, 68, target, states);
+            writeCenteredText(wtr("absolutely avoid beeing"), 32, 100, target, states);
+            writeCenteredText(wtr("touched by a ghost"), 32, 132, target, states);
 
             sf::VertexArray vertices(sf::Quads);
             vertices.resize(3*4);
@@ -71,16 +71,16 @@ void HelpScreen::draw(sf::RenderTarget& target, sf::RenderStates states) const
             genSpriteVertices(&vertices[8], sf::Vector2i(400, 208), rectForTilesetId(19));
             target.draw(vertices, states);
 
-            writeCenteredText(L"Vous perdriez alors 1 vie", 24, 300, target, states);
-            writeCenteredText(L"Attention : Les fantômes ne sont pas tous identiques et ont parfois des capacités spéciales", 16, 350, target, states);
+            writeCenteredText(wtr("If it happens, you will lose 1 life"), 24, 300, target, states);
+            writeCenteredText(wtr("Be careful : The ghosts are not identical and may have special skills"), 16, 350, target, states);
 
             break;
         }
         case 3:
         {
-            writeCenteredText(L"Une fois que vous avez ramassé 30 pièces", 32, 68, target, states);
-            writeCenteredText(L"vous pourrez aller au diamant", 32, 100, target, states);
-            writeCenteredText(L"pour changer de niveau", 32, 132, target, states);
+            writeCenteredText(wtr("Once you have gathered enough coins"), 32, 68, target, states);
+            writeCenteredText(wtr("a diamond-shaped teleporter will appear"), 32, 100, target, states);
+            writeCenteredText(wtr("to open you the next level"), 32, 132, target, states);
 
             sf::VertexArray vertices(sf::Quads);
             vertices.resize(3*4);
@@ -89,15 +89,15 @@ void HelpScreen::draw(sf::RenderTarget& target, sf::RenderStates states) const
             genSpriteVertices(&vertices[8], sf::Vector2i(400, 208), rectForTilesetId(27));
             target.draw(vertices, states);
 
-            writeCenteredText(L"Vous gagnez alors 10 points et vous récupérez 1 vie", 24, 300, target, states);
+            writeCenteredText(wtr("It will give you 10 coins and you will recover 1 life"), 24, 300, target, states);
 
             break;
         }
         case 4:
         {
-            writeCenteredText(L"A chaque nouveau niveau", 32, 68, target, states);
-            writeCenteredText(L"vous découvrirez de nouveaux mécanismes", 32, 100, target, states);
-            writeCenteredText(L"toujours plus étranges", 32, 132, target, states);
+            writeCenteredText(wtr("Each new level"), 32, 68, target, states);
+            writeCenteredText(wtr("will bring new mechanics"), 32, 100, target, states);
+            writeCenteredText(wtr("each time stranger"), 32, 132, target, states);
 
             sf::VertexArray vertices(sf::Quads);
             vertices.resize(2*4);
@@ -105,14 +105,14 @@ void HelpScreen::draw(sf::RenderTarget& target, sf::RenderStates states) const
             genSpriteVertices(&vertices[4], sf::Vector2i(368, 208), rectForTilesetId(34));
             target.draw(vertices, states);
 
-            writeCenteredText(L"Il faudra apprendre à les maîtriser", 24, 300, target, states);
+            writeCenteredText(wtr("You will need to master them"), 24, 300, target, states);
             break;
         }
         case 5:
         {
-            writeCenteredText(L"A plusieurs joueurs", 32, 68, target, states);
-            writeCenteredText(L"vous pourrez jouer en coopération", 32, 100, target, states);
-            writeCenteredText(L"sur les mêmes niveaux qu'en solo", 32, 132, target, states);
+            writeCenteredText(wtr("With friends on the same computer"), 32, 68, target, states);
+            writeCenteredText(wtr("you can play in the co-op mode"), 32, 100, target, states);
+            writeCenteredText(wtr("on the solo levels"), 32, 132, target, states);
 
             sf::VertexArray vertices(sf::Quads);
             vertices.resize(4*4);
@@ -122,7 +122,7 @@ void HelpScreen::draw(sf::RenderTarget& target, sf::RenderStates states) const
             genSpriteVertices(&vertices[12], sf::Vector2i(400, 208), rectForTilesetId(11));
             target.draw(vertices, states);
 
-            writeCenteredText(L"Ou bien l'un contre l'autre avec le deuxième joueur en fantôme", 24, 300, target, states);
+            writeCenteredText(wtr("Or try the duel mode with one player controlling a ghost"), 24, 300, target, states);
         }
     }
 }

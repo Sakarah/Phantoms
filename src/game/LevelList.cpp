@@ -3,7 +3,7 @@
 
 std::vector<LevelList> LevelList::_levelLists;
 
-LevelList::LevelList(std::string fileName)
+LevelList::LevelList(const std::string& fileName)
 {
     std::ifstream fileStream;
     fileStream.open("assets/level/"+fileName);

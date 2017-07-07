@@ -16,7 +16,7 @@ struct LevelList
     static const LevelList* getLevelList(int id);
 
 private:
-    LevelList(std::string fileName);
+    LevelList(const std::string& fileName);
     static std::vector<LevelList> _levelLists;
 };
 

@@ -36,32 +36,31 @@ void EndScreen::draw(sf::RenderTarget& target, sf::RenderStates states) const
         case GameEnd::GameOver:
         {
             target.clear(sf::Color(0,0,0));
-            drawCenteredText("Game Over", AssetManager::getFont(AssetManager::GameOver), 64, sf::Color(255,255,255), 100, target, states);
-            sf::String scoreStr = "Score : " + std::to_string(_score);
+            drawCenteredText(wtr("Game Over"), AssetManager::getFont(AssetManager::GameOver), 64, sf::Color(255,255,255), 100, target, states);
+            sf::String scoreStr = wfmt(tr("Score: %d"), _score);
             drawCenteredText(scoreStr, AssetManager::getFont(AssetManager::GameOver), 40, sf::Color(255,255,0), 250, target, states);
             break;
         }
         case GameEnd::Victory:
         {
             target.clear(sf::Color(0,0,0));
-            drawCenteredText(L"Vous avez gagné !", AssetManager::getFont(AssetManager::Victory), 64, sf::Color(255,255,255), 100, target, states);
-            sf::String scoreStr = "Score : " + std::to_string(_score);
+            drawCenteredText(wtr("You have won!"), AssetManager::getFont(AssetManager::Victory), 64, sf::Color(255,255,255), 100, target, states);
+            sf::String scoreStr = wfmt(tr("Score: %d"), _score);
             drawCenteredText(scoreStr, AssetManager::getFont(AssetManager::GameOver), 40, sf::Color(255,255,0), 250, target, states);
             break;
         }
         case GameEnd::DuelVictoryPlayer:
         {
             target.clear(sf::Color(255,255,0));
-            drawCenteredText("Victoire :", AssetManager::getFont(AssetManager::Victory), 40, sf::Color(0,0,0), 100, target, states);
-            drawCenteredText("Joueur", AssetManager::getFont(AssetManager::Victory), 100, sf::Color(0,0,0), 150, target, states);
+            drawCenteredText(wtr("Victory:"), AssetManager::getFont(AssetManager::Victory), 40, sf::Color(0,0,0), 100, target, states);
+            drawCenteredText(wtr("Player"), AssetManager::getFont(AssetManager::Victory), 100, sf::Color(0,0,0), 150, target, states);
             break;
         }
         case GameEnd::DuelVictoryPhantom:
         {
             target.clear(sf::Color(0,255,255));
-            drawCenteredText("Victoire :", AssetManager::getFont(AssetManager::GameOver), 40, sf::Color(0,0,0), 100, target, states);
-            // Le F majuscule de Fantome dépasse la taille maximale d'un caractère et pose problème du coup on le prend en minuscule
-            drawCenteredText("fantome", AssetManager::getFont(AssetManager::GameOver), 100, sf::Color(0,0,0), 150, target, states);
+            drawCenteredText(wtr("Victory:"), AssetManager::getFont(AssetManager::GameOver), 40, sf::Color(0,0,0), 100, target, states);
+            drawCenteredText(wtr("Phantom"), AssetManager::getFont(AssetManager::GameOver), 100, sf::Color(0,0,0), 150, target, states);
             break;
         }
         case GameEnd::NotEnded:

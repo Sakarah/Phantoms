@@ -24,16 +24,14 @@ MenuScreen::MenuScreen(Window* w) : Screen(w)
     AudioManager::setMusic(AudioManager::Menu);
 }
 
-const std::pair<sf::String, float> SPEED_LIST[4] =
+const std::pair<const char*, float> SPEED_LIST[4] =
 {
-    std::make_pair(L"Lent (×1)", 1.f), std::make_pair(L"Normal (×1.5)", 1.5f),
-    std::make_pair(L"Rapide (×2)", 2.f), std::make_pair(L"Très rapide (×3)", 3.f)
+    std::make_pair(_tr_("Slow (×1)"), 1.f), std::make_pair(_tr_("Normal (×1.5)"), 1.5f),
+    std::make_pair(_tr_("Fast (×2)"), 2.f), std::make_pair(_tr_("Very fast (×3)"), 3.f)
 };
 
 void MenuScreen::handleEvent(sf::Event& event)
 {
-    sf::Lock lock(_mutex); // On s'assure que le traitement des évènements n'empiète pas sur le draw
-
     if(event.type == sf::Event::KeyPressed && _currentKey == -1)
     {
         switch(event.key.code)
@@ -153,8 +151,6 @@ void MenuScreen::drawLabel(sf::String labelString, int yPos, sf::RenderTarget& t
 
 void MenuScreen::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
-    sf::Lock lock(_mutex);
-
     states.texture = AssetManager::getTileset(AssetManager::Background);
     target.draw(_bgVertices, states);
 
@@ -164,7 +160,7 @@ void MenuScreen::draw(sf::RenderTarget& target, sf::RenderStates states) const
     if(_currentMenu == PlayMenu)
     {
         drawLabel(_levelList->name, 48, target, states);
-        drawLabel(SPEED_LIST[_speedListId].first, 128, target, states);
+        drawLabel(wtr(SPEED_LIST[_speedListId].first), 128, target, states);
 
         sf::VertexArray nbPlayerVertices(sf::Quads);
         nbPlayerVertices.resize(4*_nbPlayer);
@@ -177,9 +173,9 @@ void MenuScreen::draw(sf::RenderTarget& target, sf::RenderStates states) const
     }
     else if(_currentMenu == GraphicSettingsMenu)
     {
-        const sf::String LIGHT_QUALITY_NAME[2] = { L"Basse", L"Elevée" };
-        drawLabel(std::to_string(Settings::frameRate)+" fps", 112, target, states);
-        drawLabel(LIGHT_QUALITY_NAME[Settings::lightQuality], 208, target, states);
+        const char* LIGHT_QUALITY_NAME[2] = { _tr_("Low"), _tr_("High") };
+        drawLabel(wfmt(tr("%d fps"), Settings::frameRate), 112, target, states);
+        drawLabel(wtr(LIGHT_QUALITY_NAME[Settings::lightQuality]), 208, target, states);
     }
     else if(_currentMenu == AudioSettingsMenu)
     {
@@ -227,52 +223,52 @@ void MenuScreen::updateSize()
     _topLeftOffset = 0.5f*winSize - sf::Vector2f(320, 240);
 }
 
-const std::tuple<sf::String, int, int> MAIN_MENU_ITEMS[4] =
+const std::tuple<const char*, int, int> MAIN_MENU_ITEMS[4] =
 {
-    std::make_tuple(L"Jouer", 128, 32),
-    std::make_tuple(L"Options", 64, 192),
-    std::make_tuple(L"Aide", 64, 272),
-    std::make_tuple(L"Quitter", 64, 352)
+    std::make_tuple(_tr_("Play"), 128, 32),
+    std::make_tuple(_tr_("Options"), 64, 192),
+    std::make_tuple(_tr_("Help"), 64, 272),
+    std::make_tuple(_tr_("Quit"), 64, 352)
 };
 
-const std::tuple<sf::String, int, int> PLAY_MENU_ITEMS[5] =
+const std::tuple<const char*, int, int> PLAY_MENU_ITEMS[5] =
 {
-    std::make_tuple(L"Niveaux :", 32, 16),
-    std::make_tuple(L"Vitesse :", 32, 96),
-    std::make_tuple(L"Nombre de joueurs :", 32, 176),
-    std::make_tuple(L"Commencer !", 64, 272),
-    std::make_tuple(L"Retour", 32, 400)
+    std::make_tuple(_tr_("Levels:"), 32, 16),
+    std::make_tuple(_tr_("Speed:"), 32, 96),
+    std::make_tuple(_tr_("Number of players:"), 32, 176),
+    std::make_tuple(_tr_("Start !"), 64, 272),
+    std::make_tuple(_tr_("Back"), 32, 400)
 };
 
-const std::tuple<sf::String, int, int> SETTINGS_MENU_ITEMS[4] =
+const std::tuple<const char*, int, int> SETTINGS_MENU_ITEMS[4] =
 {
-    std::make_tuple(L"Gameplay", 64, 32),
-    std::make_tuple(L"Graphisme", 64, 128),
-    std::make_tuple(L"Audio", 64, 224),
-    std::make_tuple(L"Retour", 64, 352)
+    std::make_tuple(_tr_("Gameplay"), 64, 32),
+    std::make_tuple(_tr_("Graphism"), 64, 128),
+    std::make_tuple(_tr_("Audio"), 64, 224),
+    std::make_tuple(_tr_("Back"), 64, 352)
 };
 
-const std::tuple<sf::String, int, int> GAMEPLAY_SETTINGS_MENU_ITEMS[5] =
+const std::tuple<const char*, int, int> GAMEPLAY_SETTINGS_MENU_ITEMS[5] =
 {
-    std::make_tuple(L"J1", 32, 32),
-    std::make_tuple(L"J2", 32, 32),
-    std::make_tuple(L"J3", 32, 208),
-    std::make_tuple(L"J4", 32, 208),
-    std::make_tuple(L"Valider", 64, 384)
+    std::make_tuple(_tr_("P1"), 32, 32),
+    std::make_tuple(_tr_("P2"), 32, 32),
+    std::make_tuple(_tr_("P3"), 32, 208),
+    std::make_tuple(_tr_("P4"), 32, 208),
+    std::make_tuple(_tr_("OK"), 64, 384)
 };
 
-const std::tuple<sf::String, int, int> GRAPHIC_SETTINGS_MENU_ITEMS[3] =
+const std::tuple<const char*, int, int> GRAPHIC_SETTINGS_MENU_ITEMS[3] =
 {
-    std::make_tuple(L"Fréquence de rafraîchissement :", 32, 80),
-    std::make_tuple(L"Qualité des lumières :", 32, 176),
-    std::make_tuple(L"Valider", 64, 304)
+    std::make_tuple(_tr_("Frame rate:"), 32, 80),
+    std::make_tuple(_tr_("Light quality:"), 32, 176),
+    std::make_tuple(_tr_("OK"), 64, 304)
 };
 
-const std::tuple<sf::String, int, int> AUDIO_SETTINGS_MENU_ITEMS[3] =
+const std::tuple<const char*, int, int> AUDIO_SETTINGS_MENU_ITEMS[3] =
 {
-    std::make_tuple(L"Volume de la musique :", 32, 80),
-    std::make_tuple(L"Volume des sons :", 32, 176),
-    std::make_tuple(L"Valider", 64, 304)
+    std::make_tuple(_tr_("Music volume:"), 32, 80),
+    std::make_tuple(_tr_("Sound volume:"), 32, 176),
+    std::make_tuple(_tr_("OK"), 64, 304)
 };
 
 void MenuScreen::setMenu(Menu menu)
@@ -282,7 +278,7 @@ void MenuScreen::setMenu(Menu menu)
     _currentMenu = menu;
 
     int nbItems = 0;
-    const std::tuple<sf::String, int, int>* itemParams = nullptr;
+    const std::tuple<const char*, int, int>* itemParams = nullptr;
     switch(menu)
     {
         case MainMenu:
@@ -313,7 +309,7 @@ void MenuScreen::setMenu(Menu menu)
 
     for(int i = 0 ; i < nbItems ; i++)
     {
-        sf::Text item(std::get<0>(itemParams[i]), AssetManager::getFont(AssetManager::Gui), std::get<1>(itemParams[i]));
+        sf::Text item(wtr(std::get<0>(itemParams[i])), AssetManager::getFont(AssetManager::Gui), std::get<1>(itemParams[i]));
         if(menu != GameplaySettingsMenu || i == 4)
             item.setPosition(centerToSide(320, item.getLocalBounds().width), std::get<2>(itemParams[i]));
         else

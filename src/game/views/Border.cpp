@@ -50,7 +50,7 @@ void Border::genVertices()
     int i = 0;
     for(int radius = 1 ; radius <= frameWidth ; radius++)
     {
-        // On génère les 4 coins
+        // Generating the 4 corners
         _vertices.resize(i+16);
         genSpriteVertices(&_vertices[i], sf::Vector2i(-radius,-radius)*TILE_SIZE, rectForTilesetId(0));
         genSpriteVertices(&_vertices[i+4], sf::Vector2i(gameTileSize.x+radius-1,-radius)*TILE_SIZE, rectForTilesetId(3));
@@ -58,7 +58,7 @@ void Border::genVertices()
         genSpriteVertices(&_vertices[i+12], sf::Vector2i(gameTileSize.x+radius-1,gameTileSize.y+radius-1)*TILE_SIZE, rectForTilesetId(27));
         i+=16;
 
-        // On génère les lignes horizontales
+        // Generating horizontal lines
         for(int x = -radius+1 ; x < gameTileSize.x/2 ; x++)
         {
             _vertices.resize(i+16);
@@ -76,7 +76,7 @@ void Border::genVertices()
             i+=8;
         }
 
-        // On génère les lignes verticales
+        // Generating vertical lines
         for(int y = -radius+1 ; y < gameTileSize.y/2 ; y++)
         {
             _vertices.resize(i+16);

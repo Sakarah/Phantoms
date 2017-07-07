@@ -21,7 +21,7 @@ void ReplayRecorder::init(ReplayRecorder::ReplayMode mode, std::string fileName)
     logData(header, 4);
     if(std::strcmp(header, "FRec"))
     {
-        std::cerr << "Fichier d'enregistrement non valide" << std::endl;
+        std::cerr << tr("Invalid record file") << std::endl;
         mode = Disabled;
     }
 
@@ -29,7 +29,7 @@ void ReplayRecorder::init(ReplayRecorder::ReplayMode mode, std::string fileName)
     logValue(version);
     if(version != RECORD_VERSION)
     {
-        std::cerr << "Mauvaise version d'enregistrement" << std::endl;
+        std::cerr << tr("Wrong record file version") << std::endl;
         mode = Disabled;
     }
 }

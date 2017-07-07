@@ -10,8 +10,36 @@
 
 using std::shared_ptr;
 using std::weak_ptr;
+using std::unique_ptr;
 
-// Note : Les indexs correspondent à la position des sprites dans le tileset
+template<typename ... Args>
+std::string formatString(const std::string& format, Args... args)
+{
+    size_t size = std::snprintf(nullptr, 0, format.c_str(), args...) + 1; // Extra space for '\0'
+    unique_ptr<char[]> buf(new char[size]);
+    std::snprintf(buf.get(), size, format.c_str(), args...);
+    return std::string(buf.get(), buf.get() + size - 1); // We don't want the '\0' inside
+}
+
+#include <locale>
+#include <codecvt>
+// We need wide strings for SFML but gettext provides utf8 strings
+inline std::wstring toWideStr(const std::string& str)
+{   
+    std::wstring_convert<std::codecvt_utf8<wchar_t>, wchar_t> converter;
+    return converter.from_bytes(str);
+}
+
+#include <libintl.h>
+#define tr(str) gettext(str) // Translation
+#define _tr_(str) str // Noop translation
+#define wtr(str) toWideStr(tr(str)) // Translation and wstring conversion
+#define ntr(str1, str2, n) ngettext(str1, str2, n) // Translation with plural form
+#define nftr(str1, str2, n) formatString(ntr(str1,str2,n),n) // Translation and formatting (plural form)
+#define wnftr(str1, str2, n) toWideStr(nftr(str1,str2,n)) // Same as nftr but returns a wstring
+#define wfmt(format, ...)  toWideStr(formatString(format, __VA_ARGS__)) // Format and convert to wide string
+
+// Note : Indexes are linked to the sprite position in tileset
 enum class ObjectSprite
 {
     Empty = -1,

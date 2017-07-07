@@ -23,7 +23,7 @@ bool operator<(const b2Vec2& a, const b2Vec2& b)
     return a.x != b.x ? a.x < b.x : a.y < b.y;
 }
 
-LevelLoader::LevelLoader(std::string fileName, int nbPlayer)
+LevelLoader::LevelLoader(const std::string& fileName, int nbPlayer)
 {
     _fileName = "assets/level/"+fileName;
     _nbPlayer = nbPlayer;

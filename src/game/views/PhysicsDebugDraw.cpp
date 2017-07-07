@@ -76,5 +76,5 @@ void PhysicsDebugDraw::DrawSegment(const b2Vec2& p1, const b2Vec2& p2, const b2C
 void PhysicsDebugDraw::DrawTransform(const b2Transform& xf)
 {
     B2_NOT_USED(xf);
-    // Aucune idée de comment représenter ça
+    // Don't know how to draw that...
 }

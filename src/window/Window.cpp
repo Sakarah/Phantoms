@@ -4,7 +4,7 @@
 #include <SFML/Window/Event.hpp>
 #include <SFML/System/Clock.hpp>
 
-Window::Window() : sf::RenderWindow(sf::VideoMode(800, 608), L"Fantômes", sf::Style::Default)
+Window::Window() : sf::RenderWindow(sf::VideoMode(800, 608), wtr("Phantoms"), sf::Style::Default)
 {
     sf::Image windowIcon;
     windowIcon.loadFromFile("assets/icon.png");

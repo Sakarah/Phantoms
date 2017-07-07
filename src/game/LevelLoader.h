@@ -18,7 +18,7 @@ bool operator<(const b2Vec2&, const b2Vec2&);
 class LevelLoader
 {
 public:
-    LevelLoader(std::string fileName, int nbPlayer);
+    LevelLoader(const std::string& fileName, int nbPlayer);
     ~LevelLoader() = default;
     void loadMap(World*);
     LevelType levelType();

@@ -10,6 +10,10 @@
 
 int main(int argc, char** argv)
 {
+    setlocale(LC_ALL, "");
+    bindtextdomain("phantoms", "i18n");
+    textdomain("phantoms");
+
     ReplayRecorder::ReplayMode replayMode = ReplayRecorder::Record;
     std::string replayFile = "replay.rec";
     bool loadSettings = true;

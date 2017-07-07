@@ -1,0 +1,7 @@
+bin/*
+graphics/*
+replay.rec
+settings.cfg
+*.pro.user
+*.pot
+*.mo

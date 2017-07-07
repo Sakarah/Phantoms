@@ -95,7 +95,7 @@ CONFIG(debug, debug|release) {
 
 RC_FILE += win32.rc
 
-# Dépendance SFML
+# SFML dependency
 windows {
     INCLUDEPATH += ../../libs/SFML-2.3/include
     LIBS += -L../../libs/SFML-2.3/lib/
@@ -104,7 +104,7 @@ windows {
 }
 unix: LIBS += -lsfml-system -lsfml-window -lsfml-graphics -lsfml-audio
 
-# Dépendance Box2D
+# Box2D dependency
 windows {
     INCLUDEPATH += ../../libs/Box2D/include
     CONFIG(release, debug|release): LIBS += -L../../libs/Box2D/bin/release/ -lBox2D
@@ -112,5 +112,5 @@ windows {
 }
 unix : LIBS += -lBox2D
 
-# Dépendance TmxParser
+# TmxParser dependency
 LIBS += -ltmxparser

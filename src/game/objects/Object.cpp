@@ -33,12 +33,12 @@ void Object::step(float time)
 
 void Object::contactWith(Object*)
 {
-    // Par défaut : Aucune action au contact
+    // By default : No contact action
 }
 
 void Object::linkedSwitchActivated(bool)
 {
-    // Par défaut : Aucune action à la (dés)activation d'un interrupteur lié
+    // By default : No action when a linked switch is (de)activated
 }
 
 ObjectSprite Object::sprite() { return _sprite; }
@@ -108,7 +108,7 @@ void Object::setPath(Path* path)
 bool Object::isActive() { return _physicBody->IsActive(); }
 void Object::setActive(bool active) { _physicBody->SetActive(active); }
 
-// Permet d'éviter les actions multiples sur un même objet. Un objet désactivé ne génère plus de collisions.
+// Avoid multiple actions on the same object. A disabled object will not generate new collisions.
 bool Object::isDisabled() const { return _flags & DisabledFlag; }
 void Object::disableUntilNextFrame()
 {

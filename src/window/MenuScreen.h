@@ -51,7 +51,6 @@ private:
     sf::VertexArray _bgVertices;
     sf::Vector2f _topLeftOffset;
     std::vector<sf::Text> _menuItems;
-    mutable sf::Mutex _mutex;
 };
 
 #endif // MENUSCREEN_H

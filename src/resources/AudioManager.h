@@ -24,7 +24,7 @@ public:
         Duel,
         GameOver,
         Victory,
-        NbMusic // Maintenir à la fin !
+        NbMusic // Keep at end !
     };
 
     enum Sound
@@ -41,7 +41,7 @@ public:
         SwordHit,
         BossDie,
         Slowed,
-        NbSounds // Maintenir à la fin !
+        NbSounds // Keep at end !
     };
 
     static void init();

@@ -14,7 +14,7 @@ public:
         Background,
         Border,
         HelpSettings,
-        NbTilesets // Garder à la fin !
+        NbTilesets // Keep at end !
     };
 
     enum Font
@@ -23,14 +23,14 @@ public:
         GameOver,
         Victory,
         Keyboard,
-        NbFonts // Garder à la fin !
+        NbFonts // Keep at end !
     };
 
     enum Shader
     {
         LightAttenuation,
         Blur,
-        NbShaders // Garder à la fin !
+        NbShaders // Keep at end !
     };
 
     static void loadAssets();

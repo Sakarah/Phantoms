@@ -1,0 +1,294 @@
+# Phantoms french translation
+# Copyright (C) 2017 Sakarah
+# This file is distributed under the same license as the Phantom package.
+# Sakarah <sakarah92@gmail.com>, 2017.
+#
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-07-07 18:10+0200\n"
+"PO-Revision-Date: 2017-07-07 18:10+0200\n"
+"Last-Translator: Sakarah <sakarah92@gmail.com>\n"
+"Language-Team: français <>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Gtranslator 2.91.7\n"
+
+#: ../src/window/HelpScreen.cpp:37
+msgid "Welcome in Phantom's help"
+msgstr "Bienvenue dans l'aide de Fantômes"
+
+#: ../src/window/HelpScreen.cpp:39
+msgid "Use arrow keys to navigate between pages"
+msgstr "Utilisez les touches flèches pour changer de page"
+
+#: ../src/window/HelpScreen.cpp:40
+msgid "Type <Esc> to return to menu"
+msgstr "Appuyez sur <Echap> pour revenir au menu"
+
+#: ../src/window/HelpScreen.cpp:46
+msgid "In this game you must"
+msgstr "Dans ce jeu vous devez"
+
+#: ../src/window/HelpScreen.cpp:47
+msgid "catch the maximum of coins"
+msgstr "attraper un maximum de pièces"
+
+#: ../src/window/HelpScreen.cpp:48
+msgid "with the smiling character(s)"
+msgstr "avec le(s) personnage(s)"
+
+#: ../src/window/HelpScreen.cpp:57
+msgid "Each coin gives you 1 point"
+msgstr "Chaque pièce vous rapportera 1 point"
+
+#: ../src/window/HelpScreen.cpp:63
+msgid "At the same time you must"
+msgstr "Dans le même temps vous devez"
+
+#: ../src/window/HelpScreen.cpp:64
+msgid "absolutely avoid beeing"
+msgstr "absolument éviter d'être"
+
+#: ../src/window/HelpScreen.cpp:65
+msgid "touched by a ghost"
+msgstr "touché par un fantôme"
+
+#: ../src/window/HelpScreen.cpp:74
+msgid "If it happens, you will lose 1 life"
+msgstr "Vous perdriez alors 1 vie"
+
+#: ../src/window/HelpScreen.cpp:75
+msgid "Be careful : The ghosts are not identical and may have special skills"
+msgstr ""
+"Attention : Les fantômes ne sont pas tous identiques et ont parfois des "
+"capacités spéciales"
+
+#: ../src/window/HelpScreen.cpp:81
+msgid "Once you have gathered enough coins"
+msgstr "Une fois que vous avez ramassé 30 pièces"
+
+#: ../src/window/HelpScreen.cpp:82
+msgid "a diamond-shaped teleporter will appear"
+msgstr "vous pourrez aller au diamant"
+
+#: ../src/window/HelpScreen.cpp:83
+msgid "to open you the next level"
+msgstr "pour changer de niveau"
+
+#: ../src/window/HelpScreen.cpp:92
+msgid "It will give you 10 coins and you will recover 1 life"
+msgstr "Vous gagnez alors 10 points et vous récupérez 1 vie"
+
+#: ../src/window/HelpScreen.cpp:98
+msgid "Each new level"
+msgstr "A chaque nouveau niveau"
+
+#: ../src/window/HelpScreen.cpp:99
+msgid "will bring new mechanics"
+msgstr "vous découvrirez de nouveaux mécanismes"
+
+#: ../src/window/HelpScreen.cpp:100
+msgid "each time stranger"
+msgstr "toujours plus étranges"
+
+#: ../src/window/HelpScreen.cpp:108
+msgid "You will need to master them"
+msgstr "Il faudra apprendre à les maîtriser"
+
+#: ../src/window/HelpScreen.cpp:113
+msgid "With friends on the same computer"
+msgstr "A plusieurs joueurs"
+
+#: ../src/window/HelpScreen.cpp:114
+msgid "you can play in the co-op mode"
+msgstr "vous pourrez jouer en coopération"
+
+#: ../src/window/HelpScreen.cpp:115
+msgid "on the solo levels"
+msgstr "sur les mêmes niveaux qu'en solo"
+
+#: ../src/window/HelpScreen.cpp:125
+msgid "Or try the duel mode with one player controlling a ghost"
+msgstr "Ou bien l'un contre l'autre avec le deuxième joueur en fantôme"
+
+#: ../src/window/MenuScreen.cpp:29
+msgid "Slow (×1)"
+msgstr "Lent (×1)"
+
+#: ../src/window/MenuScreen.cpp:29
+msgid "Normal (×1.5)"
+msgstr "Normal (×1.5)"
+
+#: ../src/window/MenuScreen.cpp:30
+msgid "Fast (×2)"
+msgstr "Rapide (×2)"
+
+#: ../src/window/MenuScreen.cpp:30
+msgid "Very fast (×3)"
+msgstr "Très rapide (×3)"
+
+#: ../src/window/MenuScreen.cpp:176
+msgid "Low"
+msgstr "Basse"
+
+#: ../src/window/MenuScreen.cpp:176
+msgid "High"
+msgstr "Élevée"
+
+#: ../src/window/MenuScreen.cpp:177
+#, c-format
+msgid "%d fps"
+msgstr "%d fps"
+
+#: ../src/window/MenuScreen.cpp:228
+msgid "Play"
+msgstr "Jouer"
+
+#: ../src/window/MenuScreen.cpp:229
+msgid "Options"
+msgstr "Options"
+
+#: ../src/window/MenuScreen.cpp:230
+msgid "Help"
+msgstr "Aide"
+
+#: ../src/window/MenuScreen.cpp:231
+msgid "Quit"
+msgstr "Quitter"
+
+#: ../src/window/MenuScreen.cpp:236
+msgid "Levels:"
+msgstr "Niveaux :"
+
+#: ../src/window/MenuScreen.cpp:237
+msgid "Speed:"
+msgstr "Vitesse :"
+
+#: ../src/window/MenuScreen.cpp:238
+msgid "Number of players:"
+msgstr "Nombre de joueurs :"
+
+#: ../src/window/MenuScreen.cpp:239
+msgid "Start !"
+msgstr "Commencer !"
+
+#: ../src/window/MenuScreen.cpp:240 ../src/window/MenuScreen.cpp:248
+msgid "Back"
+msgstr "Retour"
+
+#: ../src/window/MenuScreen.cpp:245
+msgid "Gameplay"
+msgstr "Gameplay"
+
+#: ../src/window/MenuScreen.cpp:246
+msgid "Graphism"
+msgstr "Graphisme"
+
+#: ../src/window/MenuScreen.cpp:247
+msgid "Audio"
+msgstr "Audio"
+
+#: ../src/window/MenuScreen.cpp:253
+msgid "P1"
+msgstr "J1"
+
+#: ../src/window/MenuScreen.cpp:254
+msgid "P2"
+msgstr "J2"
+
+#: ../src/window/MenuScreen.cpp:255
+msgid "P3"
+msgstr "J3"
+
+#: ../src/window/MenuScreen.cpp:256
+msgid "P4"
+msgstr "J4"
+
+#: ../src/window/MenuScreen.cpp:257 ../src/window/MenuScreen.cpp:264
+#: ../src/window/MenuScreen.cpp:271
+msgid "OK"
+msgstr "Valider"
+
+#: ../src/window/MenuScreen.cpp:262
+msgid "Frame rate:"
+msgstr "Fréquence de rafraîchissement :"
+
+#: ../src/window/MenuScreen.cpp:263
+msgid "Light quality:"
+msgstr "Qualité des lumières :"
+
+#: ../src/window/MenuScreen.cpp:269
+msgid "Music volume:"
+msgstr "Volume de la musique :"
+
+#: ../src/window/MenuScreen.cpp:270
+msgid "Sound volume:"
+msgstr "Volume des sons :"
+
+#: ../src/window/EndScreen.cpp:39
+msgid "Game Over"
+msgstr "Game Over"
+
+#: ../src/window/EndScreen.cpp:40 ../src/window/EndScreen.cpp:48
+#: ../src/game/views/Foreground.cpp:28
+#, c-format
+msgid "Score: %d"
+msgstr "Score : %d"
+
+#: ../src/window/EndScreen.cpp:47
+msgid "You have won!"
+msgstr "Vous avez gagné !"
+
+#: ../src/window/EndScreen.cpp:55 ../src/window/EndScreen.cpp:62
+msgid "Victory:"
+msgstr "Victoire :"
+
+#: ../src/window/EndScreen.cpp:56
+msgid "Player"
+msgstr "Joueur"
+
+# En minuscule pour éviter un problème d'affichage
+#: ../src/window/EndScreen.cpp:63
+msgid "Phantom"
+msgstr "fantôme"
+
+# En minuscule pour éviter un problème d'affichage
+#: ../src/window/Window.cpp:7
+msgid "Phantoms"
+msgstr "Fantômes"
+
+#: ../src/resources/ReplayRecorder.cpp:24
+msgid "Invalid record file"
+msgstr "Fichier d'enregistrement non valide"
+
+#: ../src/resources/ReplayRecorder.cpp:32
+msgid "Wrong record file version"
+msgstr "Mauvaise version d'enregistrement"
+
+#: ../src/game/views/Foreground.cpp:37
+msgid "Next level available"
+msgstr "Prochain niveau disponible"
+
+#: ../src/game/views/Foreground.cpp:40
+#, c-format
+msgid "Next level after %d more coin"
+msgid_plural "Next level after %d more coins"
+msgstr[0] "Prochain niveau dans %d pièce"
+msgstr[1] "Prochain niveau dans %d pièces"
+
+#: ../src/game/views/Foreground.cpp:49
+msgid "Boss defeated"
+msgstr "Boss vaincu"
+
+#: ../src/game/views/Foreground.cpp:49
+msgid "BOSS !"
+msgstr "BOSS !"
+
+#: ../src/game/views/Foreground.cpp:56
+#, c-format
+msgid "Time left: %ds"
+msgstr "Temps restant : %ds"

@@ -51,7 +51,7 @@ void Switch::contactWith(Object* other)
 
 void Switch::linkedSwitchActivated(bool active)
 {
-    // Des interrupteurs liés s'activent et se désactivent ensemble
+    // Linked switches are activated and deactivated together
     setActive(active);
 }
 
