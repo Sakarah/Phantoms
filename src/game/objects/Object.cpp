@@ -2,7 +2,7 @@
 #include "../../Random.h"
 #include "../gameplay.h"
 #include "../World.h"
-#include "../EmptySpaceChecker.h"
+#include "../b2callbacks/EmptySpaceChecker.h"
 #include "../paths/Path.h"
 #include <Box2D/Dynamics/b2World.h>
 

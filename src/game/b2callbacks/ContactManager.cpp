@@ -1,5 +1,5 @@
 #include "ContactManager.h"
-#include "objects/Object.h"
+#include "../objects/Object.h"
 #include <Box2D/Dynamics/Contacts/b2Contact.h>
 
 void ContactManager::BeginContact(b2Contact* contact)

@@ -1,6 +1,6 @@
 #include "LightSource.h"
-#include "../VerticesLister.h"
-#include "../NearestObjectRaycaster.h"
+#include "../b2callbacks/VerticesLister.h"
+#include "../b2callbacks/NearestObjectRaycaster.h"
 #include "../World.h"
 #include <Box2D/Dynamics/b2World.h>
 

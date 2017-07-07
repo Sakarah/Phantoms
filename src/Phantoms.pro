@@ -3,6 +3,11 @@ CONFIG -= qt
 QMAKE_CXXFLAGS += -std=c++11 -fno-rtti -fno-exceptions -pedantic
 
 SOURCES += \
+    game/b2callbacks/ContactManager.cpp \
+    game/b2callbacks/EmptySpaceChecker.cpp \
+    game/b2callbacks/NearestObjectRaycaster.cpp \
+    game/b2callbacks/VerticesLister.cpp \
+    game/b2callbacks/WarpChecker.cpp \
     game/objects/Boss.cpp \
     game/objects/Character.cpp \
     game/objects/CharacterPhantom.cpp \
@@ -21,14 +26,9 @@ SOURCES += \
     game/views/LightComposer.cpp \
     game/views/LightSource.cpp \
     game/views/SpriteView.cpp \
-    game/ContactManager.cpp \
-    game/EmptySpaceChecker.cpp \
     game/Game.cpp \
     game/LevelList.cpp \
     game/LevelLoader.cpp \
-    game/NearestObjectRaycaster.cpp \
-    game/VerticesLister.cpp \
-    game/WarpChecker.cpp \
     game/World.cpp \
     resources/AssetManager.cpp \
     resources/AudioManager.cpp \
@@ -44,6 +44,11 @@ SOURCES += \
     Random.cpp
 
 HEADERS += \
+    game/b2callbacks/ContactManager.h \
+    game/b2callbacks/EmptySpaceChecker.h \
+    game/b2callbacks/NearestObjectRaycaster.h \
+    game/b2callbacks/VerticesLister.h \
+    game/b2callbacks/WarpChecker.h \
     game/objects/Boss.h \
     game/objects/Character.h \
     game/objects/CharacterPhantom.h \
@@ -62,15 +67,10 @@ HEADERS += \
     game/views/LightComposer.h \
     game/views/LightSource.h \
     game/views/SpriteView.h \
-    game/ContactManager.h \
-    game/EmptySpaceChecker.h \
     game/Game.h \
     game/gameplay.h \
     game/LevelList.h \
     game/LevelLoader.h \
-    game/NearestObjectRaycaster.h \
-    game/VerticesLister.h \
-    game/WarpChecker.h \
     game/World.h \
     resources/AssetManager.h \
     resources/AudioManager.h \

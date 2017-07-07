@@ -2,7 +2,7 @@
 #define WARPCHECKER_H
 
 #include <Box2D/Dynamics/b2WorldCallbacks.h>
-#include "../common.h"
+#include "../../common.h"
 
 class WarpChecker : public b2QueryCallback
 {

@@ -4,7 +4,7 @@
 #include <list>
 #include <functional>
 #include <Box2D/Dynamics/b2World.h>
-#include "ContactManager.h"
+#include "b2callbacks/ContactManager.h"
 #include "common.h"
 class Game;
 class Object;

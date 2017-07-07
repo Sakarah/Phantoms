@@ -4,7 +4,7 @@
 #include "objects/Powerup.h"
 #include "Game.h"
 #include "gameplay.h"
-#include "WarpChecker.h"
+#include "b2callbacks/WarpChecker.h"
 #include "../resources/AudioManager.h"
 #include "../resources/Settings.h"
 
