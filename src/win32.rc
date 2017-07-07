@@ -1,0 +1,28 @@
+1 ICON "icon.ico"
+
+#include <windows.h>
+#ifdef DEBUG
+# define VER_DEBUG 0
+#else
+# define VER_DEBUG VS_FF_DEBUG
+#endif
+1 VERSIONINFO
+FILEFLAGSMASK  	VS_FFI_FILEFLAGSMASK
+FILEFLAGS      	VER_DEBUG
+FILEOS         	VOS__WINDOWS32
+FILETYPE       	VFT_APP
+{
+    BLOCK "StringFileInfo"
+    {
+        BLOCK "040C04E4"
+        {
+            VALUE "CompanyName",      "Sakarah"
+            VALUE "FileDescription",  "Fantômes"
+            VALUE "OriginalFilename", "Fantomes.exe"
+        }
+    }
+    BLOCK "VarFileInfo"
+    {
+        VALUE "Translation", 0x40C, 0x4E4
+    }
+}

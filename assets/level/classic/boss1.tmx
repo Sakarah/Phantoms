@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="25" height="19" tilewidth="32" tileheight="32" nextobjectid="4">
+ <properties>
+  <property name="type" value="boss"/>
+ </properties>
+ <tileset firstgid="1" name="Sprite" tilewidth="32" tileheight="32" tilecount="64" columns="8">
+  <image source="../../tileset/sprite.png" width="256" height="256"/>
+ </tileset>
+ <tileset firstgid="65" name="Background" tilewidth="32" tileheight="32" tilecount="64" columns="8">
+  <image source="../../tileset/background.png" width="256" height="256"/>
+ </tileset>
+ <layer name="background" width="25" height="19">
+  <data encoding="base64" compression="zlib">
+   eJyLYGBgiBjFo3gUj+JRPIpHMc0wAF69o0k=
+  </data>
+ </layer>
+ <layer name="map" width="25" height="19">
+  <data encoding="base64" compression="zlib">
+   eJxjZmBgYMaDWQjwidEDwviAEBpfnIB6dECMHZQCYu3ApYZYvSxoYtJALIMmhqyGF48duPSiq1MGYhUsbsHlRmL0UhJW6GGAS+9giXNq2MHCgDvvwLAwFLMgsYnNh4QAeh5EBgIk+mkUjAJcQJLK5rGi8TmBmBGIBQmoQwfE1nHE1H+41AMAYacDCg==
+  </data>
+ </layer>
+ <objectgroup name="switches">
+  <object id="1" x="494" y="328">
+   <polyline points="0,0 -30,-24 -64,-24 -126,-24 -161,-24"/>
+  </object>
+ </objectgroup>
+ <objectgroup name="paths">
+  <object id="2" x="270" y="46">
+   <polyline points="0,0 258,2 254,226 -1,227"/>
+  </object>
+  <object id="3" x="275" y="327">
+   <polyline points="-5,7 252,8"/>
+  </object>
+ </objectgroup>
+</map>

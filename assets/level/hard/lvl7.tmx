@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="40" height="30" tilewidth="16" tileheight="16" nextobjectid="4">
+ <properties>
+  <property name="type" value="classic"/>
+ </properties>
+ <tileset firstgid="1" name="Sprite" tilewidth="32" tileheight="32" tilecount="64" columns="8">
+  <tileoffset x="0" y="16"/>
+  <image source="../../tileset/sprite.png" width="256" height="256"/>
+  <tile id="31">
+   <objectgroup draworder="index"/>
+  </tile>
+ </tileset>
+ <tileset firstgid="65" name="Background" tilewidth="32" tileheight="32" tilecount="64" columns="8">
+  <tileoffset x="0" y="16"/>
+  <image source="../../tileset/background.png" width="256" height="256"/>
+ </tileset>
+ <tileset firstgid="129" name="numbers" tilewidth="32" tileheight="32" tilecount="40" columns="8">
+  <tileoffset x="0" y="16"/>
+  <image source="../../../lvlDesign/numbers.png" width="256" height="160"/>
+ </tileset>
+ <layer name="background" width="40" height="30">
+  <data encoding="base64" compression="zlib">
+   eJzt0KEVACAAhFAXdv9qcIZ7EKDQ/z2/K7092ie/7e3RPvltb4/2yW97e7RPftvbo33y294e7ZPf9vZon/y2t/cAx4l/vQ==
+  </data>
+ </layer>
+ <layer name="map" width="40" height="30">
+  <data encoding="base64" compression="zlib">
+   eJztmLEKgDAMRNXGQcTBUUf//yMdTKFkaJUeeLG+5Qw04UhiQUN3EVTFxCUVo3fzSvVizE702wNqHYAak6pkT/HAOmdWXxZWn//+1cHqy4Kc8wCs5aV/SLy8c2+R7tecPO+qYuJcfonxwdmv0OL+Ie+ZFu8/1p3x0j9Wn6xztbD2j9WXJfpcALVqvn831VXVW/9Q/1HQ+eycgTIBoA==
+  </data>
+ </layer>
+ <objectgroup name="paths">
+  <object id="1" x="312" y="423">
+   <polyline points="0,0 -273,2 -272,-63 -271,-111 15,-111 93,-110 93,-192 95,-270 18,-270 -273,-271 -271,-316 -271,-385 2,-383 271,-382 272,-321 273,-271 -16,-275 -96,-275 -97,-191 -95,-115 -17,-115 272,-111 274,-64 272,-2"/>
+  </object>
+  <object id="3" x="309" y="40">
+   <polyline points="0,0 274,1 275,64 276,113 -13,110 -93,110 -91,193 -92,273 -12,272 275,272 275,319 274,382 3,385 -269,384 -269,316 -270,273 20,272 100,272 101,188 100,112 19,112 -271,114 -270,61 -269,0"/>
+  </object>
+ </objectgroup>
+</map>

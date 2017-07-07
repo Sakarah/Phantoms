@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="20" height="15" tilewidth="32" tileheight="32" nextobjectid="3">
+ <properties>
+  <property name="type" value="classic"/>
+ </properties>
+ <tileset firstgid="1" name="Sprite" tilewidth="32" tileheight="32" tilecount="64" columns="8">
+  <image source="../../tileset/sprite.png" width="256" height="256"/>
+  <tile id="2" probability="2"/>
+  <tile id="3" probability="0.25"/>
+ </tileset>
+ <tileset firstgid="65" name="Background" tilewidth="32" tileheight="32" tilecount="64" columns="8">
+  <image source="../../tileset/background.png" width="256" height="256"/>
+ </tileset>
+ <layer name="background" width="20" height="15">
+  <data encoding="base64" compression="zlib">
+   eJzzZWBg8B3Fo3gUj+IhgAFCNFo9
+  </data>
+ </layer>
+ <layer name="map" width="20" height="15">
+  <data encoding="base64" compression="zlib">
+   eJy9VEEKgDAMi24enHjQm///qEU2lLKtEYuBQBkhG226ACAoRlUX6PNaHWAjZfawqvt3wtdCtCUXxkxPT9aL6R+DhHseg3AWbsLjg2cvIzpDNdZ0Xv1bHp5Wtlh4vg8vvP7OX9mtMp/J0DP7C3BZaf0vrdycIiABtA==
+  </data>
+ </layer>
+ <objectgroup name="paths">
+  <object id="1" x="77" y="82">
+   <polyline points="0,0 481,-6 483,97 4,92"/>
+  </object>
+  <object id="2" x="556" y="398">
+   <polyline points="0,0 -479,3 -478,-95 2,-92"/>
+  </object>
+ </objectgroup>
+</map>

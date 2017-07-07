@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="50" height="38" tilewidth="16" tileheight="16" nextobjectid="1">
+ <properties>
+  <property name="type" value="duel"/>
+ </properties>
+ <tileset firstgid="1" name="Sprite" tilewidth="32" tileheight="32" tilecount="64" columns="8">
+  <tileoffset x="0" y="16"/>
+  <image source="../tileset/sprite.png" width="256" height="256"/>
+ </tileset>
+ <tileset firstgid="65" name="Background" tilewidth="32" tileheight="32" tilecount="64" columns="8">
+  <tileoffset x="0" y="16"/>
+  <image source="../tileset/background.png" width="256" height="256"/>
+ </tileset>
+ <layer name="background" width="50" height="38">
+  <data encoding="base64" compression="zlib">
+   eJztk7ENACAAwvxaNz3dAT9gqYQupHuZQ6y381NPYb89n3sKlL77D0Hp2/UUKH33H4LSt+spUPruPwSlb9dToPTdfwhK366nQOm7/xCUvl1PgdJ3/yEofbueAqXv/kNQ+nY9BUrf/Yeg9O16CpS++w9xAe9Q5Lo=
+  </data>
+ </layer>
+ <layer name="map" width="50" height="38">
+  <data encoding="base64" compression="zlib">
+   eJztmcsSgyAMRX3QLuro2nHX///JzmjdMKGBCOkNeDaMCOZmAobH2B2MiaXznqVw3419XwunP/1fVcixHI+BqPP9mTWEZMRyPCis+2Ndv4/jm+xI88cj0n4oX3DE6rdCrN9nu7WUkIC9XO00eV3oi+o3qq7SpP6vtEDVhQLq/GiBJ1EnzZubsN8dj9/c80MH1LyJqqs0qH5r5PMr69JSoK1jpkR7rc4P6T6a259z57gcrcYDlVbPS1BYvGdKP3WObQWr4+v9La2NJw7pfWCu+7mQHc5erfeDHw9VAdw=
+  </data>
+ </layer>
+</map>

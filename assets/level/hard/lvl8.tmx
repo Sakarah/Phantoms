@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="25" height="19" tilewidth="32" tileheight="32" nextobjectid="5">
+ <properties>
+  <property name="type" value="classic"/>
+ </properties>
+ <tileset firstgid="1" name="Sprite" tilewidth="32" tileheight="32" tilecount="64" columns="8">
+  <image source="../../tileset/sprite.png" width="256" height="256"/>
+ </tileset>
+ <tileset firstgid="65" name="Background" tilewidth="32" tileheight="32" tilecount="64" columns="8">
+  <image source="../../tileset/background.png" width="256" height="256"/>
+ </tileset>
+ <layer name="background" width="25" height="19">
+  <data encoding="base64" compression="zlib">
+   eJyLYWBgiBnFo3gUj+JRPIpHMc0wAPnyqrU=
+  </data>
+ </layer>
+ <layer name="map" width="25" height="19">
+  <data encoding="base64" compression="zlib">
+   eJy9VNEKgCAMXMweKnroRaj//9AaKMhwc8vswAfd3Q5XJwJAeBYKS6tJnJpmAjuIvxm5Z+HhQXDyNY9L0Xj4eW4SVqNHjVfyW7Pies7X+ls9eB8Uzns9CHnege2/9CDExI8OjTU/b/LJa6Pv4f0eyPYttPKRMfq/4n34W9Kbj9E5/+q9+uvdJc1i5O9JMxv5B7Tz5q0H4fwGxZQDdw==
+  </data>
+ </layer>
+ <objectgroup name="teleporters">
+  <object id="1" x="359" y="261">
+   <polyline points="0,0 -318,293"/>
+  </object>
+  <object id="2" x="361" y="328">
+   <polyline points="0,0 383,226"/>
+  </object>
+  <object id="3" x="426" y="328">
+   <polyline points="0,0 321,-289"/>
+  </object>
+  <object id="4" x="422" y="263">
+   <polyline points="0,0 -384,-224"/>
+  </object>
+ </objectgroup>
+</map>

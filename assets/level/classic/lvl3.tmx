@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="40" height="30" tilewidth="16" tileheight="16" nextobjectid="3">
+ <properties>
+  <property name="type" value="classic"/>
+ </properties>
+ <tileset firstgid="1" name="Sprite" tilewidth="32" tileheight="32" tilecount="64" columns="8">
+  <tileoffset x="0" y="16"/>
+  <image source="../../tileset/sprite.png" width="256" height="256"/>
+  <tile id="31">
+   <objectgroup draworder="index"/>
+  </tile>
+ </tileset>
+ <tileset firstgid="65" name="Background" tilewidth="32" tileheight="32" tilecount="64" columns="8">
+  <tileoffset x="0" y="16"/>
+  <image source="../../tileset/background.png" width="256" height="256"/>
+ </tileset>
+ <layer name="background" width="40" height="30">
+  <data encoding="base64" compression="zlib">
+   eJzt0CEVADAAhNAlXP84E8twDwQY/L/nd6W3R/vkt7092ie/7e3RPvltb4/2yW97e7RPftvbo33y294e7ZPf9vYeM9lbaQ==
+  </data>
+ </layer>
+ <objectgroup name="paths">
+  <object id="1" x="55" y="375">
+   <polyline points="0,0 0,-65 96,-64 96,-96 449,-96 449,-224 321,-224 321,-319 513,-320 514,32 417,33 417,-128 322,-128 321,32 0,32"/>
+  </object>
+ </objectgroup>
+ <layer name="map" width="40" height="30">
+  <data encoding="base64" compression="zlib">
+   eJztmDEOgDAIRVV0UOOgm/e/qIN0kNi0VGgh8S0/GvpFiikRuhtAHYkCU2PruH4h3jqQDnlwou6oM2pf6BdDykcb6Tyl/Dz33yDs19JHG+3+W4R8rCL9nYT3noR8rCOdZ+r8zt0vb/VbI/dpHei1Ft7OD2vzl7f+s4bVvCi1+oxbDy/1q5Un3afUjPmW18F8ZunsxKFW/f7++0bovy0z3lv9tP+ncNe3Pv9zuQBheAGZ
+  </data>
+ </layer>
+</map>

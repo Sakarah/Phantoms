@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="40" height="30" tilewidth="16" tileheight="16" nextobjectid="1">
+ <properties>
+  <property name="type" value="classic"/>
+ </properties>
+ <tileset firstgid="1" name="Sprite" tilewidth="32" tileheight="32" tilecount="64" columns="8">
+  <tileoffset x="0" y="16"/>
+  <image source="../../tileset/sprite.png" width="256" height="256"/>
+  <tile id="31">
+   <objectgroup draworder="index"/>
+  </tile>
+ </tileset>
+ <tileset firstgid="65" name="Background" tilewidth="32" tileheight="32" tilecount="64" columns="8">
+  <tileoffset x="0" y="16"/>
+  <image source="../../tileset/background.png" width="256" height="256"/>
+ </tileset>
+ <layer name="background" width="40" height="30">
+  <data encoding="base64" compression="zlib">
+   eJzt0CEVADAAhNDVXP8iE8twDwQY/L/nd6W3R/vkt7092ie/7e3RPvltb4/2yW97e7RPftvbo33y294e7ZPf9vYeT3xoTQ==
+  </data>
+ </layer>
+ <layer name="map" width="40" height="30">
+  <data encoding="base64" compression="zlib">
+   eJzlmLEOgCAMRBVxUOPg6P//qIN2qUEOObSEW7qUR1tbIPru1BCxHvRD16E865I4VxKHlXdt9bMmJC532RlkIn6pzJrrZ0HseWPxfNzFhHLz3RRHbJ/JraX/9D2IqtQ9Glv3V1+G9tV1QIW+V95yW5nfSXHE7pncWuaXfd6z+qa1+rGFxCVvNPfodfdnMq2eM1bj0mL2n1VWScl3Xkic3LxHEucrlfrvksoN7WNdB8LzAc8=
+  </data>
+ </layer>
+</map>

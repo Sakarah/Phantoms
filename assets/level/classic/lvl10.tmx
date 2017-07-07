@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="40" height="30" tilewidth="16" tileheight="16" nextobjectid="11">
+ <properties>
+  <property name="type" value="classic"/>
+ </properties>
+ <tileset firstgid="1" name="Sprite" tilewidth="32" tileheight="32" tilecount="64" columns="8">
+  <tileoffset x="0" y="16"/>
+  <image source="../../tileset/sprite.png" width="256" height="256"/>
+  <tile id="31">
+   <objectgroup draworder="index"/>
+  </tile>
+ </tileset>
+ <tileset firstgid="65" name="Background" tilewidth="32" tileheight="32" tilecount="64" columns="8">
+  <tileoffset x="0" y="16"/>
+  <image source="../../tileset/background.png" width="256" height="256"/>
+ </tileset>
+ <layer name="background" width="40" height="30">
+  <data encoding="base64" compression="zlib">
+   eJzt0CEVADAAhNBVW/9SE8twDwQY/L/nd6W3R/vkt7092ie/7e3RPvltb4/2yW97e7RPftvbo33y294e7ZPf9vYeWP1MLQ==
+  </data>
+ </layer>
+ <objectgroup name="paths">
+  <object id="1" x="72" y="57">
+   <polyline points="0,0 0,349"/>
+  </object>
+  <object id="2" x="553" y="410">
+   <polyline points="0,0 -2,-354"/>
+  </object>
+  <object id="3" x="202" y="232">
+   <polyline points="0,0 1,-111 112,-111 222,-111 222,0 221,110 109,113 -1,113"/>
+  </object>
+  <object id="4" x="310" y="116">
+   <polyline points="0,0 116,1 116,115 116,224 1,225 -110,225 -112,115 -112,2"/>
+  </object>
+  <object id="5" x="313" y="339">
+   <polyline points="0,0 -115,3 -115,-109 -115,-222 3,-223 112,-223 112,-106 112,3"/>
+  </object>
+  <object id="6" x="425" y="232">
+   <polyline points="0,0 -2,113 -113,110 -227,113 -226,-2 -227,-114 -113,-115 0,-113"/>
+  </object>
+  <object id="7" x="134" y="229">
+   <polyline points="0,0 0,-178 178,-174 354,-172 351,3 355,179 178,179 2,179"/>
+  </object>
+  <object id="8" x="312" y="405">
+   <polyline points="0,0 -177,2 -175,-176 -174,-350 2,-351 179,-352 178,-175 179,2"/>
+  </object>
+  <object id="9" x="486" y="232">
+   <polyline points="0,0 3,175 -175,175 -350,174 -353,-3 -351,-178 -176,-178 -2,-177"/>
+  </object>
+  <object id="10" x="311" y="56">
+   <polyline points="0,0 179,-1 179,177 177,352 2,351 -176,353 -175,173 -174,-3"/>
+  </object>
+ </objectgroup>
+ <layer name="map" width="40" height="30">
+  <data encoding="base64" compression="zlib">
+   eJxjZEAFLFCamUiaECDWHHTzOIk0fxSQBoQo0KtENVcgALHpiN5gsLoLHQxWd7IQVkIyGE1/gw9QM56p6eehEn6jgLYAvcxA5sPSCDeU5oXSrGjyhMwZBSMXDNYya6iUf7RoJ1AD0CL8RlL7ZbDGKzoYrOE32NIfJf3GUYAbCKLxB8v4iySR5g80AADwAgIQ
+  </data>
+ </layer>
+</map>
