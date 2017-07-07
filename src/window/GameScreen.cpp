@@ -3,19 +3,17 @@
 #include "EndScreen.h"
 #include "../resources/Settings.h"
 #include "../resources/ReplayRecorder.h"
-#include "../game/objects/Object.h"
 #include <SFML/Graphics/RenderTarget.hpp>
 #include <SFML/Window/Keyboard.hpp>
 #include <SFML/System/Lock.hpp>
 
-GameScreen::GameScreen(int nbPlayer, int levelListId, float speedFactor, Window* w) :
-    Screen(w),
-    _game(nbPlayer, levelListId, speedFactor),
-    _objectView(_game.world()),
-    _wallsView(_game.world()),
-    _foreground(&_game)
+GameScreen::GameScreen(int nbPlayer, int levelListId, float speedFactor, Window* w) : Screen(w), _game(nbPlayer, levelListId, speedFactor)
 {
     _game.loadLevel();
+    _stepFrameId = 0;
+    _drawFrameId = 0;
+    _frame[0].state = Frame::ReadyToUpdate;
+    _frame[1].state = Frame::ReadyToUpdate;
 #ifdef DEBUG
     _physicsDebugDraw.setupDebugDraw(_game.world());
 #endif
@@ -41,6 +39,12 @@ const b2Vec2 DIRECTION[4] = { b2Vec2(-1,0), b2Vec2(1,0), b2Vec2(0,-1), b2Vec2(0,
 
 void GameScreen::step()
 {
+    Frame* frame = &_frame[_stepFrameId];
+    sf::Lock frameLock(frame->mutex);
+    if(frame->state != Frame::ReadyToUpdate) return;
+    frame->state = Frame::ReadyToDraw;
+    _stepFrameId = (_stepFrameId+1)%2;
+
     for(int player = 0 ; player < _game.nbPlayer() ; player++)
     {
         _game.moveCharacter(player, b2Vec2(0,0));
@@ -55,6 +59,7 @@ void GameScreen::step()
     b2Vec2 oldWorldSize = _game.world()->size();
 
     _game.world()->step();
+    frame->update(_game);
 
     if(!(_game.world()->size() == oldWorldSize))
     {
@@ -64,29 +69,27 @@ void GameScreen::step()
     if(_game.hasEnded()) _window->setScreen(new EndScreen(_game.endType(), _game.score(), _window));
 }
 
-void GameScreen::prepareDraw()
+bool GameScreen::prepareDraw()
 {
-    sf::Vector2u frameSize = toPixelSize(_game.world()->size());
-    _background.setBackground(frameSize, _game.world()->backgroundInfo());
-    _border.setGameSize(frameSize);
+    Frame* frame = &_frame[_drawFrameId];
+    sf::Lock frameLock(frame->mutex);
+    if(frame->state != Frame::ReadyToDraw) return false;
+    frame->state = Frame::ReadyToUpdate;
+    _drawFrameId = (_drawFrameId+1)%2;
 
-    std::vector<LightSource> lightSources;
-    for(Object* obj : _game.world()->getObjectList())
-    {
-        if(!obj->isActive()) continue;
-        if(obj->lightRadius() != 0)
-        {
-            lightSources.push_back(LightSource(obj->currentPos(), obj->lightRadius(), obj->lightColor()));
-            lightSources.back().computeLight(_game.world()->physicWorld());
-        }
-    }
+    _background.setBackground(frame->size, frame->backgroundInfo);
+    _bgShadows.renderLights(frame->size, frame->lightSources, frame->ambientLight);
 
-    const sf::Color ambientLight(100,100,100);
-    const sf::Color ambientObjectLight(100,100,100,100);
+    _objectView.setObjectList(std::move(frame->objectsInfos));
+    _objShadows.renderLights(frame->size, frame->lightSources, frame->ambientObjectLight);
 
-    _bgShadows.renderLights(frameSize, lightSources, ambientLight);
-    _objShadows.renderLights(frameSize, lightSources, ambientObjectLight);
-    _wallShadows.renderLights(frameSize, lightSources, ambientLight);
+    _wallsView.setObjectList(std::move(frame->objectsInfos));
+    _wallShadows.renderLights(frame->size, frame->lightSources, frame->ambientLight);
+
+    _border.setGameSize(frame->size);
+    _foreground.setGameInfos(std::move(frame->gameInfos));
+
+    return true;
 }
 
 void GameScreen::draw(sf::RenderTarget& target, sf::RenderStates states) const

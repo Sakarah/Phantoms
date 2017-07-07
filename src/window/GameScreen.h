@@ -3,6 +3,7 @@
 
 #include "Screen.h"
 #include "game/Game.h"
+#include "game/views/Frame.h"
 #include "game/views/Background.h"
 #include "game/views/SpriteView.h"
 #include "game/views/Foreground.h"
@@ -20,7 +21,7 @@ public:
     ~GameScreen() = default;
     sf::Vector2u wantedSize() const override;
     void step() override;
-    void prepareDraw() override;
+    bool prepareDraw() override;
     void draw(sf::RenderTarget&, sf::RenderStates) const override;
     void updateSize() override;
 
@@ -28,6 +29,9 @@ private:
     void updatePlayerInputs(b2Vec2* inputs);
 
     Game _game;
+    Frame _frame[2];
+    int8 _stepFrameId;
+    int8 _drawFrameId;
     sf::Vector2f _topLeftOffset;
     Background _background;
     LightComposer _bgShadows;

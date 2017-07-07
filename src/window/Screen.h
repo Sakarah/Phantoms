@@ -14,7 +14,7 @@ public:
     virtual sf::Vector2u wantedSize() const { return sf::Vector2u(640, 480); }
     virtual void handleEvent(sf::Event&) {}
     virtual void step() {}
-    virtual void prepareDraw() {}
+    virtual bool prepareDraw() { return true; }
     virtual void updateSize() {}
     void draw(sf::RenderTarget&, sf::RenderStates) const override {}
 protected:

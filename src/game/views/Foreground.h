@@ -3,16 +3,17 @@
 
 #include <SFML/Graphics/Drawable.hpp>
 #include <SFML/Graphics/Font.hpp>
-class Game;
+#include "Frame.h"
 
 class Foreground : public sf::Drawable
 {
 public:
-    Foreground(const Game*);
+    Foreground();
     ~Foreground() = default;
+    void setGameInfos(GameInfos&&);
     void draw(sf::RenderTarget&, sf::RenderStates) const override;
 private:
-    const Game* _game;
+    GameInfos _gameInfos;
 };
 
 #endif // FOREGROUND_H

@@ -3,9 +3,13 @@
 #include "../resources/Settings.h"
 #include <SFML/Window/Event.hpp>
 #include <SFML/System/Clock.hpp>
+#include <SFML/System/Sleep.hpp>
+#include <SFML/System/Thread.hpp>
 
 Window::Window() : sf::RenderWindow(sf::VideoMode(800, 608), L"Fantômes", sf::Style::Default)
 {
+    setActive(false);
+
     sf::Image windowIcon;
     windowIcon.loadFromFile("assets/icon.png");
     setIcon(windowIcon.getSize().x, windowIcon.getSize().y, windowIcon.getPixelsPtr());
@@ -26,7 +30,15 @@ void Window::updateSize()
     _updateSize = true;
 }
 
-void Window::loop()
+void Window::startMultithreadLoops()
+{
+    sf::Thread stepThread(&Window::stepLoop, this);
+    stepThread.launch();
+
+    drawLoop();
+}
+
+void Window::startMonothreadLoop()
 {
     sf::Clock stepClock;
     while(isOpen())
@@ -34,17 +46,14 @@ void Window::loop()
         sf::Event event;
         while(pollEvent(event)) manageEvent(event);
 
-        sf::Time elapsedTime = stepClock.getElapsedTime();
-        if(elapsedTime.asSeconds() < Settings::frameTime) continue;
-        stepClock.restart();
-
-        step();
+        step(stepClock);
         render();
     }
 }
 
 void Window::manageEvent(sf::Event& event)
 {
+    shared_ptr<Screen> screen = _screen;
     switch (event.type)
     {
         case sf::Event::Closed:
@@ -60,27 +69,52 @@ void Window::manageEvent(sf::Event& event)
             _updateSize = true;
             break;
         default:
-            shared_ptr<Screen> screen = _screen;
             screen->handleEvent(event);
             break;
     }
 }
 
-void Window::step()
+void Window::stepLoop()
+{
+    sf::Clock stepClock;
+
+    while(isOpen())
+    {
+        sf::sleep(sf::milliseconds(1));
+        step(stepClock);
+    }
+}
+
+void Window::step(sf::Clock& stepClock)
 {
     if(!_haveFocus) return;
+
+    sf::Time elapsedTime = stepClock.getElapsedTime();
+    if(elapsedTime.asSeconds() < Settings::frameTime) return;
+    stepClock.restart();
 
     shared_ptr<Screen> screen = _screen;
     screen->step();
 }
 
+void Window::drawLoop()
+{
+    while(isOpen())
+    {
+        sf::Event event;
+        while(pollEvent(event)) manageEvent(event);
+
+        sf::sleep(sf::milliseconds(1));
+        render();
+    }
+}
+
 void Window::render()
 {
     shared_ptr<Screen> screen = _screen;
-
     if(_updateSize)
     {
-        sf::Vector2u minSize = _screen->wantedSize();
+        sf::Vector2u minSize = screen->wantedSize();
         sf::Vector2u currentSize = getSize();
         sf::Vector2u finalSize = sf::Vector2u(std::max(minSize.x, currentSize.x), std::max(minSize.y, currentSize.y));
         setSize(finalSize);
@@ -95,7 +129,7 @@ void Window::render()
         _updateSize = false;
     }
 
-    screen->prepareDraw();
+    if(!screen->prepareDraw()) return;
     clear();
     draw(*screen);
     display();

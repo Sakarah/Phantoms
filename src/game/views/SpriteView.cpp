@@ -1,15 +1,13 @@
 #include "SpriteView.h"
-#include "../World.h"
-#include "../objects/Object.h"
+#include "Frame.h"
 #include "../../graphics.h"
 #include "../../resources/AssetManager.h"
 #include <SFML/Graphics/RenderTarget.hpp>
 #include <SFML/Graphics/VertexArray.hpp>
 
-SpriteView::SpriteView(const World* world)
+SpriteView::SpriteView()
 {
     _spriteFlags = AllFlags;
-    _world = world;
 }
 
 void SpriteView::setSpriteFilter(uint16 flags)
@@ -17,25 +15,27 @@ void SpriteView::setSpriteFilter(uint16 flags)
     _spriteFlags = flags;
 }
 
+void SpriteView::setObjectList(std::vector<ObjectInfos>&& objectList)
+{
+    _objectList = objectList;
+}
+
 void SpriteView::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
-    sf::VertexArray spriteVertices(sf::Quads);
+    sf::VertexArray spriteVertices(sf::Quads, _objectList.size()*4);
     int i = 0;
-    for(Object* obj : _world->getObjectList())
+    for(ObjectInfos objInfos : _objectList)
     {
-        if(!obj->isActive()) continue;
-        if(!(obj->flags() & _spriteFlags)) continue;
-        if(!obj->currentPos().IsValid()) continue;
+        if(!(objInfos.flags & _spriteFlags)) continue;
 
-        int objSpriteId = static_cast<int>(obj->sprite());
-        int objSize = obj->flags() & BigSpriteFlag ? 2 : 1;
+        int objSpriteId = static_cast<int>(objInfos.sprite);
+        int objSize = objInfos.flags & BigSpriteFlag ? 2 : 1;
         sf::IntRect spriteTexRect = rectForTilesetId(objSpriteId, objSize);
-        sf::Vector2i spritePos = obj->currentPixelPos();
+        sf::Vector2i spritePos = objInfos.pos;
 
-        spriteVertices.resize(i+4);
         genSpriteVertices(&spriteVertices[i], spritePos, spriteTexRect);
 
-        if(obj->flags() & SemiTransparentFlag)
+        if(objInfos.flags & SemiTransparentFlag)
         {
             sf::Color semiTransparent = sf::Color(0xff,0xff,0xff,0x80);
             spriteVertices[i].color = semiTransparent;

@@ -3,17 +3,18 @@
 
 #include <SFML/Graphics/Drawable.hpp>
 #include "../../common.h"
-class World;
+class ObjectInfos;
 
 class SpriteView : public sf::Drawable
 {
 public:
-    SpriteView(const World*);
+    SpriteView();
     ~SpriteView() = default;
     void setSpriteFilter(uint16 flags);
+    void setObjectList(std::vector<ObjectInfos>&&);
     void draw(sf::RenderTarget&, sf::RenderStates) const override;
 private:
-    const World* _world;
+    std::vector<ObjectInfos> _objectList;
     uint16 _spriteFlags;
 };
 

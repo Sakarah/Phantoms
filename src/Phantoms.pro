@@ -18,6 +18,7 @@ SOURCES += \
     game/views/Background.cpp \
     game/views/Border.cpp \
     game/views/Foreground.cpp \
+    game/views/Frame.cpp \
     game/views/LightComposer.cpp \
     game/views/LightSource.cpp \
     game/views/SpriteView.cpp \
@@ -59,6 +60,7 @@ HEADERS += \
     game/views/Background.h \
     game/views/Border.h \
     game/views/Foreground.h \
+    game/views/Frame.h \
     game/views/LightComposer.h \
     game/views/LightSource.h \
     game/views/SpriteView.h \

@@ -12,9 +12,12 @@ public:
     ~Window() = default;
     void setScreen(Screen*);
     void updateSize();
-    void loop();
+    void startMultithreadLoops();
+    void startMonothreadLoop();
     void manageEvent(sf::Event&);
-    void step();
+    void stepLoop();
+    void step(sf::Clock&);
+    void drawLoop();
     void render();
 private:
     shared_ptr<Screen> _screen;

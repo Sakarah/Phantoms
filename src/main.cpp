@@ -8,11 +8,18 @@
 #include "window/MenuScreen.h"
 #include "window/GameScreen.h"
 
+#ifdef SFML_SYSTEM_WINDOWS
+const bool USE_THREADS_BY_DEFAULT = true;
+#else
+const bool USE_THREADS_BY_DEFAULT = false;
+#endif
+
 int main(int argc, char** argv)
 {
     ReplayRecorder::ReplayMode replayMode = ReplayRecorder::Record;
     std::string replayFile = "replay.rec";
     bool loadSettings = true;
+    bool useThreads = USE_THREADS_BY_DEFAULT;
     for(int i = 1 ; i < argc ; i++)
     {
         std::string arg = argv[i];
@@ -34,6 +41,9 @@ int main(int argc, char** argv)
                 i++;
             }
         }
+        else if(arg == "-m") useThreads = !useThreads;
+        else if(arg == "--monothread") useThreads = false;
+        else if(arg == "--multithread") useThreads = true;
         else if(arg == "-d" || arg == "--default-settings") loadSettings = false;
     }
 
@@ -47,7 +57,9 @@ int main(int argc, char** argv)
     Window window;
     if(replayMode == ReplayRecorder::Replay) window.setScreen(new GameScreen(0, 0, 0, &window));
     else window.setScreen(new MenuScreen(&window));
-    window.loop();
+
+    if(useThreads) window.startMultithreadLoops();
+    else window.startMonothreadLoop();
 
     return 0;
 }
