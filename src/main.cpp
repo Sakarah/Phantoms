@@ -10,7 +10,7 @@
 
 int main(int argc, char** argv)
 {
-    setlocale(LC_ALL, "");
+    setlocale(LC_MESSAGES, "");
     bindtextdomain("phantoms", "i18n");
     textdomain("phantoms");
 
