@@ -12,7 +12,7 @@ class Powerup;
 class Boss;
 class CharacterPhantom;
 
-// Ordre lexicographique sur les vecteurs
+// Lexicographic order (x then y)
 bool operator<(const b2Vec2&, const b2Vec2&);
 
 class LevelLoader

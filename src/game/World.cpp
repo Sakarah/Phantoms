@@ -31,6 +31,8 @@ b2Vec2 World::size() const { return _size; }
 void World::setSize(b2Vec2 size) { _size = size; }
 std::pair<int,int> World::backgroundInfo() const { return _bgInfo; }
 void World::setBackgroundInfo(std::pair<int,int> bgInfo) { _bgInfo = bgInfo; }
+std::pair<sf::Color, sf::Color> World::ambiantLights() const { return _ambiantLights; }
+void World::setAmbiantLights(std::pair<sf::Color, sf::Color> lights) { _ambiantLights = lights; }
 float World::speedFactor() const { return _speedFactor; }
 void World::setSpeedFactor(float speed) { _speedFactor = speed; }
 float World::timeLeft() const { return _timeLeft; }

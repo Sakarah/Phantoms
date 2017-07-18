@@ -81,12 +81,10 @@ void GameScreen::prepareDraw()
         }
     }
 
-    const sf::Color ambientLight(100,100,100);
-    const sf::Color ambientObjectLight(100,100,100,100);
-
-    _bgShadows.renderLights(frameSize, lightSources, ambientLight);
-    _objShadows.renderLights(frameSize, lightSources, ambientObjectLight);
-    _wallShadows.renderLights(frameSize, lightSources, ambientLight);
+    std::pair<sf::Color,sf::Color> ambientLights = _game.world()->ambiantLights();
+    _bgShadows.renderLights(frameSize, lightSources, ambientLights.first);
+    _objShadows.renderLights(frameSize, lightSources, ambientLights.second);
+    _wallShadows.renderLights(frameSize, lightSources, ambientLights.first);
 }
 
 void GameScreen::draw(sf::RenderTarget& target, sf::RenderStates states) const

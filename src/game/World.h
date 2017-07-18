@@ -4,6 +4,7 @@
 #include <list>
 #include <functional>
 #include <Box2D/Dynamics/b2World.h>
+#include <SFML/Graphics/Color.hpp>
 #include "b2callbacks/ContactManager.h"
 #include "common.h"
 class Game;
@@ -25,6 +26,8 @@ public:
     void setSize(b2Vec2);
     std::pair<int,int> backgroundInfo() const;
     void setBackgroundInfo(std::pair<int,int>);
+    std::pair<sf::Color, sf::Color> ambiantLights() const;
+    void setAmbiantLights(std::pair<sf::Color, sf::Color>);
     float speedFactor() const;
     void setSpeedFactor(float);
     float timeLeft() const;
@@ -55,6 +58,7 @@ private:
     ContactManager _contactManager;
     b2Vec2 _size;
     std::pair<int,int> _bgInfo;
+    std::pair<sf::Color, sf::Color> _ambiantLights;
     std::list<Object*> _objects;
     Character* _character[4];
     b2Vec2 _crystalPos;

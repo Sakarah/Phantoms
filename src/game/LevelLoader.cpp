@@ -38,6 +38,11 @@ const std::map<std::string, LevelType> LEVEL_TYPES = {{"classic", LevelType::Cla
                                                       {"end", LevelType::End},
                                                       {"duel", LevelType::Duel}};
 
+sf::Color sfmlColor(Tmx::Color color)
+{
+    return sf::Color(color.GetRed(), color.GetGreen(), color.GetBlue(), color.GetAlpha());
+}
+
 b2Vec2 pointMapPos(Tmx::Point pixelPos, int resol, Tmx::Point parentPos = Tmx::Point{0,0})
 {
     b2Vec2 mapPos = b2Vec2(std::floor((parentPos.x+pixelPos.x)*resol/TILE_SIZE),
@@ -61,6 +66,10 @@ void LevelLoader::loadMap(World* w)
     auto lvlTypeIt = LEVEL_TYPES.find(map.GetProperties().GetStringProperty("type"));
     if(lvlTypeIt != LEVEL_TYPES.end()) _lvlType = lvlTypeIt->second;
     else _lvlType = LevelType::Classic;
+
+    sf::Color ambiantLight = sfmlColor(map.GetProperties().GetColorProperty("ambiantLight", Tmx::Color(128,128,128)));
+    sf::Color ambiantObjectLight = sfmlColor(map.GetProperties().GetColorProperty("ambiantObjectLight", Tmx::Color(128,128,128,128)));
+    w->setAmbiantLights(std::make_pair(ambiantLight, ambiantObjectLight));
 
     if(_lvlType == LevelType::Bonus)
         w->setTimeLeft(map.GetProperties().GetIntProperty("timeLimit", 60));
